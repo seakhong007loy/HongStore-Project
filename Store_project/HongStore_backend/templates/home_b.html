@@ -1,0 +1,38 @@
+{% extends 'layout_b.html' %}
+
+
+{% block title %}
+    Home Page | HongStore Backend
+{% endblock title %}
+    
+
+{% block content %}
+<section class="bg-blue-400 w-full h-screen">
+    <div class="flex flex-col justify-center items-center h-[80vh] ">
+        <p id="message" class="text-5xl animate-textComeIn transition duration-500 hover:scale-105 hover:text-red-500 cursor-default font-bold text-pink-300">
+            Hey Merl Ey Teas K'pleang Ah LV!! 😡👊🖕🏿 
+        </p>
+
+        <button id="btn" class="text-4xl animate-imageComeIn text-white font-bold mt-15 p-4 bg-pink-500 rounded-lg transition duration-300 hover:bg-pink-400 hover:scale-105 cursor-default">
+            Click Me JKJ 🙏🏻🥹
+        </button>
+    </div>
+</section>
+<script>
+    const btn = document.querySelector("#btn");
+    const message = document.querySelector("#message");
+
+    btn.addEventListener('click', ()=>{
+        if (message.innerHTML == "Kit Tha Joch Nh Hz Ke Mk Vinh Men?? 🤨😂🫵"){
+            message.textContent = "Hey Merl Ey Teas K'pleang Ah LV!! 😡👊🖕🏿";
+            btn.innerHTML = "Click Me JKJ 🙏🏻🥹";
+        } else{
+            message.textContent = "Kit Tha Joch Nh Hz Ke Mk Vinh Men?? 🤨😂🫵";
+            btn.innerHTML = "You Pler Ha Kom Pas ME! 🙄🥴";
+        }
+    });
+
+
+</script>
+{% endblock content %}
+    

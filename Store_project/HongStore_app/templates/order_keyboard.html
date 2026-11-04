@@ -1,0 +1,49 @@
+{% load static %}
+
+{% block content %}
+<title>Order Keyboard | HongStore</title>
+<link rel="stylesheet" href="{% static 'css/output.css' %}" />
+    <link rel="icon" href="{% static 'image/BigHongStore.png' %}">
+<!-- FontAweSome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
+  
+<a href="/key_view/{{keyboard.id}}" class="absolute top-0 left-0 text-3xl p-2 m-2 transition duration-300 hover:scale-105 hover:text-red-500">
+  <i class="fa-solid fa-circle-arrow-left"></i>
+</a>
+<div class="w-full h-screen flex justify-center items-center flex-col ">
+    <div class="w-100 sm:w-150 md:w-180 lg:w-auto animate-elementUp p-5 rounded-lg bg-gray-100 text-black shadow-[0_0_25px_rgba(0,0,0,0.3)] shadow-gray-300 cursor-default transition duration-500 ">
+        <h1 class="text-4xl font-bold flex justify-center items-center text-purple-900 cursor-default transition duration-500">
+            Enter your product information
+        </h1>
+        <br>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="text-2xl grid gap-5">
+                Name: 
+                <span>
+                    {{keyboard.name}}
+                </span>
+                Price: 
+                <span class="text-red-500 font-bold">
+                    {{keyboard.price}}$
+                </span>
+                Location:
+                <span class="border border-blue-400 rounded-lg w-69 ">
+                    {{order_keyboard_form.location}}
+                </span>
+                Phone Number:
+                <span class="border border-blue-400 rounded-lg w-69">
+                    {{order_keyboard_form.phone}}
+                </span>
+                Delivery:
+                <span class="border border-blue-400 rounded-lg w-69">
+                    {{order_keyboard_form.delivery}}
+                </span>
+                <input class="text-white/90 bg-blue-600 hover:bg-blue-500 cursor-default transition duration-500 hover:scale-105 rounded-lg p-2 mt-4 float-right"
+                    type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
+    

@@ -1,0 +1,70 @@
+{% extends 'layout_b.html' %}
+
+
+{% block title %}
+    Add New Laptop | HongStore Backend
+{% endblock title %}
+    
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <!-- Laptop Form -->
+        <div class=" flex justify-center items-center animate-elementUp flex-col  ">
+            <div class="bg-gray-100 shadow-lg rounded-lg p-6 ">
+                <h1 class="text-3xl font-bold mb-5">Add New Laptop</h1>
+                <div class="grid gap-2">
+                    <div class="flex gap-2 cursor-pointer">
+                        Name: 
+                        <p class="border border-gray-500 rounded-lg">
+                            {{com.name}}
+                        </p>
+                    </div>
+
+                    <div class="flex gap-2 cursor-pointer">
+                        Price: 
+                        <p class="border border-gray-500 rounded-lg">
+                            {{com.price}}
+                        </p>
+                    </div>
+
+                    <div class="flex gap-2 cursor-pointer">
+                        Discount: 
+                        <p class="border border-gray-500 rounded-lg">
+                            {{com.discount}}
+                        </p>
+                    </div>
+
+                    <div class="flex gap-2 cursor-pointer">
+                        Image1:<i class="fa-solid fa-hand-point-right"></i> 
+                        <p>
+                            {{com.photo_first}}
+                        </p>
+                    </div>
+
+                    <div class="flex gap-2 cursor-pointer">
+                        Image2:<i class="fa-solid fa-hand-point-right"></i>
+                        <p>
+                            {{com.photo_second}}
+                        </p>
+                    </div>
+
+                    <div class="cursor-pointer">
+                        Details:
+                        <p class="w-78 h-60 border border-gray-500 rounded-lg">
+                            {{com.detail}}
+                        </p>
+                    </div>
+                    
+                </div>
+                
+                <input type="submit" value="submit" 
+                class="w-full flex justify-center items-center cursor-pointer p-2 mt-5  transition duration-300 hover:scale-105 bg-blue-500 hover:bg-blue-400 rounded-lg text-white">
+            </div>
+        </div>
+    
+
+</form>
+
+{% endblock content %}
+    

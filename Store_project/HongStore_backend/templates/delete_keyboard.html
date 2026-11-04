@@ -1,0 +1,27 @@
+{% extends 'layout_b.html' %}
+
+
+{% block title %}
+    Delete Keyboard Page | HongStore Backend
+{% endblock title %}
+
+
+{% block content %}
+    <div class="w-full h-[80vh] animate-textComeIn flex justify-center items-center mt-18 flex-col">
+        <p class="text-6xl text-red-500 text-center">
+            Are you sure to delete {{delete_keyboard.name}} ?
+        </p>
+        <form action="" method="POST">
+            {% csrf_token %}
+                <a href="/HongStore_backend/view_product" 
+                class="cursor-default transition duration-300 hover:scale-105 p-2 bg-green-500 hover:bg-green-400 rounded-lg text-white">
+                    Cancel
+                </a>
+
+                <input class="cursor-default ml-10 transition duration-300 hover:scale-105 bg-red-500 hover:bg-red-400 p-2 rounded-lg text-white mt-10" 
+                type="submit" value="submit">
+        </form>
+        
+    </div>
+{% endblock content %}
+    

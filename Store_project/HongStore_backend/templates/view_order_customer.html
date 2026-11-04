@@ -1,0 +1,225 @@
+{% extends 'layout_b.html' %}
+
+
+{% block title %}
+    View All Customer Orders | HongStore Backend
+{% endblock title %}
+    
+
+{% block content %}
+
+    
+    {% for customer in customers %}
+    <div class="grid ">
+        <p class="uppercase font-extrabold text-2xl cursor-not-allowed p-4 animate-textComeIn">
+            Customer: {{customer}} <i class="fa-solid fa-user"></i>
+        </p>
+        <div class="w-full grid bg-gray-100 p-2 rounded-lg shadow-lg gap-3 ">
+            <!-- Small Screen -->
+            <div class="grid grid-cols-3 lg:grid-cols-5 animate-textComeIn">
+                <div class="font-bold">
+                    <i class="fa-solid fa-boxes-stacked"></i> Products Name
+                </div>
+                <div class="font-bold w-full items-center justify-center hidden lg:grid">
+                    <p>
+                        <i class="fa-solid fa-dollar-sign"></i> Price
+                    </p>
+                </div>
+                <div class="font-bold w-full items-center justify-center hidden lg:grid">
+                    <p>
+                        <i class="fa-solid fa-percent"></i> Discount
+                    </p>
+                </div>
+                <div class="font-bold w-full text-center">
+                    <i class="fa-solid fa-arrows-to-eye"></i> Detail Order
+                </div>
+                <div class="font-bold w-full text-center">
+                <i class="fa-regular fa-calendar-days"></i> Date
+                </div>
+            </div>
+            <hr>
+            {% for laptop in customer.orderlaptop_set.all %}
+                <div class="grid grid-cols-3 lg:grid-cols-5 animate-textComeIn">
+                    <div class="truncate cursor-default transition duration-300 hover:scale-105">
+                        <i class="fa-solid fa-laptop"></i> {{laptop.laptop}}
+                    </div>
+                    <div class="truncate cursor-default transition duration-300 hover:scale-105 w-full text-center hidden lg:grid">
+                        <p>
+                            <i class="fa-solid fa-dollar-sign"></i> {{laptop.laptop.price}}
+                        </p>
+                    </div>
+                    <div class="truncate cursor-default text-red-500 transition duration-300 hover:scale-105 w-full text-center  hidden lg:grid">
+                        <p>
+                            -- {{laptop.laptop.discount}}%
+                        </p>
+                    </div>
+
+                    <div class="">
+                        <button class="w-full font-bold text-center viewBtnLaptop transition duration-300 hover:scale-105 cursor-pointer hover:text-blue-500">
+                            <i class="fa-solid fa-eye"></i> Views
+                        </button>
+
+                        <div class="hidden ">
+                            <div class="absolute bg-gray-200 p-2 rounded-lg cursor-default">
+                                <p class="transition duration-300 hover:scale-105 ">
+                                    <i class="fa-solid fa-location-dot"></i> {{laptop.location}}
+                                </p>
+                                <p class="transition duration-300 hover:scale-105 ">
+                                    <i class="fa-solid fa-phone-volume"></i> {{laptop.phone}}
+
+                                </p>
+                                <p class="transition duration-300 hover:scale-105 ">
+                                     <i class="fa-solid fa-truck-fast"></i> {{laptop.delivery}}
+
+                                </p>
+                                <p class="transition duration-300 hover:scale-105 lg:hidden">
+                                   <i class="fa-solid fa-dollar-sign"></i> {{laptop.laptop.price}}
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="truncate transition duration-300 hover:scale-105 cursor-default w-full text-center">
+                        {{laptop.date_create}}
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% for keyboard in customer.orderkeyboard_set.all %}
+                <div class="grid grid-cols-3 lg:grid-cols-5 animate-textComeIn">
+                    <div class="truncate cursor-default transition duration-300 hover:scale-105">
+                        <i class="fa-solid fa-keyboard"></i> {{keyboard.keyboard}}
+                    </div>
+                    <div class="truncate cursor-default hidden lg:grid transition duration-300 hover:scale-105 w-full text-center">
+                        <p>
+                            <i class="fa-solid fa-dollar-sign"></i> {{keyboard.keyboard.price}}
+                        </p>
+                    </div>
+                    <div class="truncate cursor-default text-red-500 hidden lg:grid transition duration-300 hover:scale-105 w-full text-center">
+                        <p>
+                            -- {{keyboard.keyboard.discount}}%
+                        </p>
+                    </div>
+
+                    <div class="">
+                        <button class="w-full font-bold text-center viewBtnkeyboard transition duration-300 hover:scale-105 cursor-pointer hover:text-blue-500">
+                            <i class="fa-solid fa-eye"></i> Views
+                        </button>
+
+                        <div class="hidden ">
+                            <div class="absolute bg-gray-200 p-2 rounded-lg cursor-default">
+                                <p class="transition duration-300 hover:scale-105 ">
+                                    <i class="fa-solid fa-location-dot"></i> {{keyboard.location}}
+                                </p>
+                                <p class="transition duration-300 hover:scale-105 ">
+                                    <i class="fa-solid fa-phone-volume"></i> {{keyboard.phone}}
+
+                                </p>
+                                <p class="transition duration-300 hover:scale-105 ">
+                                     <i class="fa-solid fa-truck-fast"></i> {{keyboard.delivery}}
+
+                                </p>
+                                <p class="transition duration-300 hover:scale-105 lg:hidden">
+                                   <i class="fa-solid fa-dollar-sign"></i> {{keyboard.keyboard.price}}
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="truncate transition duration-300 hover:scale-105 cursor-default w-full text-center">
+                        {{keyboard.date_create}}
+                    </div>
+                </div>
+            {% endfor %}
+
+
+            {% for mouse in customer.ordermouse_set.all %}
+                <div class="grid grid-cols-3 lg:grid-cols-5 animate-textComeIn">
+                    <div class="truncate cursor-default transition duration-300 hover:scale-105">
+                        <i class="fa-solid fa-mouse"></i> {{mouse.mouse}}
+                    </div>
+                    <div class="truncate cursor-default hidden lg:grid transition duration-300 hover:scale-105 w-full text-center">
+                        <p>
+                            <i class="fa-solid fa-dollar-sign"></i> {{mouse.mouse.price}}
+                        </p>
+                    </div>
+                    <div class="truncate cursor-default text-red-500 hidden lg:grid transition duration-300 hover:scale-105 w-full text-center">
+                        <p>
+                            -- {{mouse.mouse.discount}}% 
+                        </p>
+                    </div>
+
+                    <div class="">
+                        <button class="w-full font-bold text-center viewBtnmouse transition duration-300 hover:scale-105 cursor-pointer hover:text-blue-500">
+                           <i class="fa-solid fa-eye"></i> Views
+                        </button>
+
+                        <div class="hidden ">
+                            <div class="absolute bg-gray-200 p-2 rounded-lg cursor-default">
+                                <p class="transition duration-300 hover:scale-105 ">
+                                    <i class="fa-solid fa-location-dot"></i> {{mouse.location}}
+                                </p>
+                                <p class="transition duration-300 hover:scale-105 ">
+                                    <i class="fa-solid fa-phone-volume"></i> {{mouse.phone}}
+
+                                </p>
+                                <p class="transition duration-300 hover:scale-105 ">
+                                     <i class="fa-solid fa-truck-fast"></i> {{mouse.delivery}}
+
+                                </p>
+                                <p class="transition duration-300 hover:scale-105 lg:hidden">
+                                   <i class="fa-solid fa-dollar-sign"></i> {{mouse.mouse.price}}
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="truncate transition duration-300 hover:scale-105 cursor-default w-full text-center">
+                        {{mouse.date_create}}
+                    </div>
+                </div>
+            {% endfor %}
+        <div class=""></div>
+
+            
+    </div>
+    {% endfor %}
+        
+    <script>
+        const viewBtnLaptop = document.querySelectorAll(".viewBtnLaptop");
+
+        viewBtnLaptop.forEach((viewBtnL) =>{
+            viewBtnL.addEventListener("click", () =>{
+                const viewMenuLaptop = viewBtnL.nextElementSibling;
+
+                viewMenuLaptop.classList.toggle("hidden");
+            });
+        });
+
+        const viewBtnkeyboard = document.querySelectorAll(".viewBtnkeyboard");
+
+        viewBtnkeyboard.forEach((viewBtnK) =>{
+            viewBtnK.addEventListener("click", () =>{
+                const viewMenukeyboard = viewBtnK.nextElementSibling;
+
+                viewMenukeyboard.classList.toggle("hidden");
+            });
+        });
+
+        const viewBtnmouse = document.querySelectorAll(".viewBtnmouse");
+
+        viewBtnmouse.forEach((viewBtnM) =>{
+            viewBtnM.addEventListener("click", () =>{
+                const viewMenumouse = viewBtnM.nextElementSibling;
+
+                viewMenumouse.classList.toggle("hidden");
+            });
+        });
+        
+    </script>
+
+{% endblock content %}
+    

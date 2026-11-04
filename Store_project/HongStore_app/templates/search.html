@@ -1,0 +1,220 @@
+
+{% extends 'layout.html' %}
+
+{% block title %}
+    Search Results | HongStore
+{% endblock title %}
+
+{% block content %}
+
+<div class="max-w-7xl mx-auto px-5 py-10 animate-elementUp">
+
+    <!-- Search Heading -->
+    <h1 class="text-3xl font-bold mb-3">
+        Search Results
+    </h1>
+
+    <p class="text-gray-500 mb-8">
+        {% if query %}
+            Results for "{{ query }}"
+        {% else %}
+            Enter a product name in the search box.
+        {% endif %}
+    </p>
+
+
+    {% if query %}
+
+        <!-- Computer Results -->
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold mb-5">
+                💻 Computers
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2
+                        lg:grid-cols-4 gap-6">
+
+                {% for c in computers %}
+
+                <!-- Product Card -->
+                <div class="border rounded-lg overflow-hidden">
+
+                <!-- Image -->
+                <div class="w-full h-auto
+                            flex justify-center items-center">
+
+                    <a href="/com_view/{{ c.id }}" class="w-full h-full flex justify-center items-center">
+                    <img
+                        src="/media/{{ c.photo_first }}"
+                        alt="{{ c.name }}"
+                        class="w-full h-full object-contain
+                            hover:scale-105 transition duration-300"
+                    />
+                    </a>
+
+                </div>
+
+                <!-- Text -->
+                <div class="p-4 h-full bg-white text-black shadow-lg">
+
+                    <!-- Product Name -->
+                    <p class="font-semibold text-lg truncate">
+                    {{ c.name }}
+                    </p>
+
+                    <!-- Price + Discount -->
+                    <div class="mt-2 flex justify-between items-center">
+
+                    <p class="text-xl font-bold">
+                        ${{ c.price }}
+                    </p>
+
+                    {% if c.discount %}
+                    <span class="text-sm text-red-500 font-semibold">
+                        -{{ c.discount }}%
+                    </span>
+                    {% endif %}
+
+                    </div>
+
+                </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+
+        <!-- Keyboard Results -->
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold mb-5">
+                ⌨️ Keyboards
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2
+                        lg:grid-cols-4 gap-6">
+
+                {% for k in keyboards %}
+
+                    <!-- Product Card -->
+                    <div class="border rounded-lg overflow-hidden">
+
+                        <!-- Image -->
+                        <div class="w-full h-auto
+                                    flex justify-center items-center">
+
+                            <a href="/key_view/{{ k.id }}" class="w-full h-full flex justify-center items-center">
+                            <img
+                                src="/media/{{ k.photo_first }}"
+                                alt="{{ k.name }}"
+                                class="w-full h-full object-contain
+                                    hover:scale-105 transition duration-300"
+                            />
+                            </a>
+
+                        </div>
+
+                        <!-- Text -->
+                        <div class="p-4 h-full bg-white text-black shadow-lg">
+
+                            <!-- Product Name -->
+                            <p class="font-semibold text-lg truncate">
+                            {{ k.name }}
+                            </p>
+
+                            <!-- Price + Discount -->
+                            <div class="mt-2 flex justify-between items-center">
+
+                            <p class="text-xl font-bold">
+                                ${{ k.price }}
+                            </p>
+
+                            {% if k.discount %}
+                            <span class="text-sm text-red-500 font-semibold">
+                                -{{ k.discount }}%
+                            </span>
+                            {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+
+        <!-- Mouse Results -->
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold mb-5">
+                🖱️ Mice
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2
+                        lg:grid-cols-4 gap-6">
+
+                {% for m in mice %}
+
+                    <!-- Product Cart -->
+                    <div class=" border rounded-lg overflow-hidden">
+
+                        <!-- Image -->
+                        <div class="w-full h-auto flex justify-center items-center">
+                            <a href="/mouse_view/{{ m.id }}" class="w-full h-full flex justify-center items-center">
+                                <img 
+                                    src="/media/{{ m.photo_first }}"
+                                    alt="{{ m.name }}"
+                                    class="w-full h-full
+                                        hover:scale-105 transition duration-300"
+                                />
+                            </a>
+                        </div>
+
+                        <div class="p-4 h-full bg-white text-black shadow-lg">
+
+                            <!-- Product Name -->
+                            <p class="font-semibold text-lg truncate">
+                            {{ m.name }}
+                            </p>
+
+                            <!-- Price + Discount -->
+                            <div class="mt-2 flex justify-between items-center">
+
+                            <p class="text-xl font-bold">
+                                ${{ m.price }}
+                            </p>
+
+                            {% if m.discount %}
+                            <span class="text-sm text-red-500 font-semibold">
+                                -{{ m.discount }}%
+                            </span>
+                            {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    {% endif %}
+
+</div>
+
+{% endblock content %}

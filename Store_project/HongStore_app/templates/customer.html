@@ -1,0 +1,290 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+    Views Orders | HongStore
+{% endblock title %}
+    
+
+{% block content %}
+    <h1 class="w-full animate-textComeIn uppercase h-auto text-3xl font-bold p-5 cursor-default transition duration-500 hover:text-green-400">
+         {{request.user.customer}}'s Orders:
+    </h1>
+
+    <div class="md:hidden w-full animate-textComeIn h-auto grid grid-cols-3 gap-4 p-2 rounded-lg shadow-lg cursor-default transition duration-300">
+        {% for laptop in order_laptop %}
+            <div class="transition duration-300 hover:text-blue-500 hover:scale-105 truncate ">
+                <a href="/com_view/{{laptop.laptop.id}}">
+                <i class="fa-solid fa-laptop"></i> {{laptop.laptop}}
+                </a>
+            </div>
+
+            <div class="transition duration-300 hover:scale-105 w-full text-center">
+                <h1 class="truncate">$ {{laptop.laptop.price}}</h1>
+            </div>
+
+            <div class="">
+                <button class="viewBtnLaptop w-full flex justify-center items-center cursor-default transition duration-300 hover:scale-105 hover:text-blue-500">
+                    Views
+                </button>
+
+                <div class="hidden ">
+                    <div class="transition duration-300 hover:scale-105">
+                        <h1><i class="fa-solid fa-location-dot"></i> {{laptop.location}}</h1>
+                    </div>
+                    <div class="transition duration-300 hover:scale-105">
+                        <h1><i class="fa-solid fa-phone-volume"></i> {{laptop.phone}}</h1>
+                    </div>
+                    <div class="transition duration-300 hover:scale-105 truncate">
+                        <h1><i class="fa-solid fa-truck-fast"></i> {{laptop.delivery}}</h1>
+                    </div>
+                    <div class="transition duration-300 hover:scale-105">
+                        <p class="truncate"><i class="fa-regular fa-calendar-days"></i>{{laptop.date_create}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- For Large Screen -->
+    <div class="hidden md:grid animate-textComeIn md:grid-cols-5 lg:grid-cols-6 w-full h-auto gap-4 p-2 rounded-lg shadow-lg cursor-default">
+        
+        {% for laptop in order_laptop %}
+            <!-- Products Name -->
+            <div class="transition duration-300 hover:scale-105 hover:text-blue-500 truncate">
+                <a href="/com_view/{{laptop.laptop.id}}"
+                >
+                    <i class="fa-solid fa-laptop"></i> {{laptop.laptop}}
+                </a>
+            </div>
+
+            <!-- Location Customer -->
+            <div class="w-full text-center transition duration-300 hover:scale-105 hidden lg:grid">
+                <h1 class="truncate">$ {{laptop.laptop.price}}</h1>
+            </div>
+
+            <!-- Location Customer -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"><i class="fa-solid fa-location-dot"></i> {{laptop.location}}</h1>
+            </div>
+
+            <!-- Phone Customer -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"><i class="fa-solid fa-phone-volume"></i> {{laptop.phone}}</h1>
+            </div>
+
+            <!-- Delivery Company -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"><i class="fa-solid fa-truck-fast"></i> {{laptop.delivery}}</h1>
+            </div>
+
+            <!-- Date Orders -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"><i class="fa-regular fa-calendar-days"></i> {{laptop.date_create}}</h1>
+            </div>
+        {% endfor %}
+            
+    </div>
+
+    <!-- For Keyboard -->
+    <div class="md:hidden w-full animate-textComeIn h-auto grid grid-cols-3 gap-4 p-2 rounded-lg shadow-lg cursor-default transition duration-300">
+        {% for keyboard in order_keyboard %}
+            <div class="transition duration-300 hover:text-blue-500 hover:scale-105 truncate ">
+                <a href="/key_view/{{keyboard.keyboard.id}}">
+                <i class="fa-regular fa-keyboard"></i> {{keyboard.keyboard}}
+                </a>
+            </div>
+
+            <div class="transition duration-300 hover:scale-105 w-full text-center">
+                <h1 class="truncate">$ {{keyboard.keyboard.price}}</h1>
+            </div>
+
+            <div class="">
+                <button class="viewBtnKeyboard w-full flex justify-center items-center cursor-default transition duration-300 hover:scale-105 hover:text-blue-500">
+                    Views
+                </button>
+
+                <div class="hidden ">
+                    <div class="transition duration-300 hover:scale-105">
+                        <h1><i class="fa-solid fa-location-dot"></i> {{keyboard.location}}</h1>
+                    </div>
+                    <div class="transition duration-300 hover:scale-105">
+                        <h1><i class="fa-solid fa-phone-volume"></i> {{keyboard.phone}}</h1>
+                    </div>
+                    <div class="transition duration-300 hover:scale-105 truncate">
+                        <h1><i class="fa-solid fa-truck-fast"></i> {{keyboard.delivery}}</h1>
+                    </div>
+                    <div class="transition duration-300 hover:scale-105">
+                        <p class="truncate"><i class="fa-regular fa-calendar-days"></i>{{keyboard.date_create}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- For Large Screen -->
+    <div class="hidden md:grid animate-textComeIn md:grid-cols-5 lg:grid-cols-6 w-full h-auto gap-4 p-2 rounded-lg shadow-lg cursor-default">
+        
+        {% for keyboard in order_keyboard %}
+            <!-- Products Name -->
+            <div class="transition duration-300 hover:scale-105 hover:text-blue-500 truncate">
+                <a href="/key_view/{{keyboard.keyboard.id}}"
+                >
+                    <i class="fa-regular fa-keyboard"></i> {{keyboard.keyboard}}
+                </a>
+            </div>
+
+            <!-- Location Customer -->
+            <div class="w-full text-center transition duration-300 hover:scale-105 hidden lg:grid">
+                <h1 class="truncate">$ {{keyboard.keyboard.price}}</h1>
+            </div>
+
+            <!-- Location Customer -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"><i class="fa-solid fa-location-dot"></i> {{keyboard.location}}</h1>
+            </div>
+
+            <!-- Phone Customer -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"><i class="fa-solid fa-phone-volume"></i> {{keyboard.phone}}</h1>
+            </div>
+
+            <!-- Delivery Company -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"><i class="fa-solid fa-truck-fast"></i> {{keyboard.delivery}}</h1>
+            </div>
+
+            <!-- Date Orders -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"> <i class="fa-regular fa-calendar-days"></i> {{keyboard.date_create}}</h1>
+            </div>
+        {% endfor %}
+            
+    </div>
+
+    <!-- For Mouse -->
+    <div class="md:hidden w-full animate-textComeIn h-auto grid grid-cols-3 gap-4 p-2 rounded-lg shadow-lg cursor-default transition duration-300">
+        {% for mouse in order_mouse %}
+            <div class="transition duration-300 hover:text-blue-500 hover:scale-105 truncate ">
+                <a href="/mouse_view/{{mouse.mouse.id}}">
+                <i class="fa-solid fa-mouse"></i> {{mouse.mouse}}
+                </a>
+            </div>
+
+            <div class="transition duration-300 hover:scale-105 w-full text-center">
+                <h1 class="truncate">$ {{mouse.mouse.price}}</h1>
+            </div>
+
+            <div class="">
+                <button class="viewBtnMouse w-full flex justify-center items-center cursor-default transition duration-300 hover:scale-105 hover:text-blue-500">
+                    Views
+                </button>
+
+                <div class="hidden ">
+                    <div class="transition duration-300 hover:scale-105">
+                        <h1><i class="fa-solid fa-location-dot"></i> {{mouse.location}}</h1>
+                    </div>
+                    <div class="transition duration-300 hover:scale-105">
+                        <h1><i class="fa-solid fa-phone-volume"></i> {{mouse.phone}}</h1>
+                    </div>
+                    <div class="transition duration-300 hover:scale-105 truncate">
+                        <h1><i class="fa-solid fa-truck-fast"></i> {{mouse.delivery}}</h1>
+                    </div>
+                    <div class="transition duration-300 hover:scale-105">
+                        <p class="truncate"><i class="fa-regular fa-calendar-days"></i>{{mouse.date_create}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- For Large Screen -->
+    <div class="hidden md:grid animate-textComeIn md:grid-cols-5 lg:grid-cols-6 w-full h-auto gap-4 p-2 rounded-lg shadow-lg cursor-default">
+        
+        {% for mouse in order_mouse %}
+            <!-- Products Name -->
+            <div class="transition duration-300 hover:scale-105 hover:text-blue-500 truncate">
+                <a href="/mouse_view/{{mouse.mouse.id}}"
+                >
+                    <i class="fa-solid fa-mouse"></i> {{mouse.mouse}}
+                </a>
+            </div>
+
+            <!-- Location Customer -->
+            <div class="w-full text-center transition duration-300 hover:scale-105 hidden lg:grid">
+                <h1 class="truncate">$ {{mouse.mouse.price}}</h1>
+            </div>
+
+            <!-- Location Customer -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"><i class="fa-solid fa-location-dot"></i> {{mouse.location}}</h1>
+            </div>
+
+            <!-- Phone Customer -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"><i class="fa-solid fa-phone-volume"></i> {{mouse.phone}}</h1>
+            </div>
+
+            <!-- Delivery Company -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"><i class="fa-solid fa-truck-fast"></i> {{mouse.delivery}}</h1>
+            </div>
+
+            <!-- Date Orders -->
+            <div class="w-full text-center transition duration-300 hover:scale-105">
+                <h1 class="truncate"> <i class="fa-regular fa-calendar-days"></i> {{mouse.date_create}}</h1>
+            </div>
+        {% endfor %}
+            
+    </div>
+    <div class="text-2xl transition duration-300 hover:text-red-500 font-bold p-4 cursor-default animate-elementUp">
+        Total Orders: {{total_order}}
+    </div>
+
+<script>
+    const viewBtnLaptop = document.querySelectorAll(".viewBtnLaptop");
+
+    viewBtnLaptop.forEach((viewBtnL) => {
+
+        viewBtnL.addEventListener("click", () => {
+
+            const viewMenuLaptop = viewBtnL.nextElementSibling;
+
+            viewMenuLaptop.classList.toggle("hidden");
+
+        });
+
+    });
+    
+    const viewBtnKeyboard = document.querySelectorAll(".viewBtnKeyboard");
+
+    viewBtnKeyboard.forEach((viewBtnK) => {
+
+        viewBtnK.addEventListener("click", () => {
+
+            const viewMenuKeyboard = viewBtnK.nextElementSibling;
+
+            viewMenuKeyboard.classList.toggle("hidden");
+
+        });
+
+    });
+
+    const viewBtnMouse = document.querySelectorAll(".viewBtnMouse");
+
+    viewBtnMouse.forEach((viewBtnM) => {
+
+        viewBtnM.addEventListener("click", () => {
+
+            const viewMenuMouse = viewBtnM.nextElementSibling;
+
+            viewMenuMouse.classList.toggle("hidden");
+
+        });
+
+    });
+
+</script>
+
+{% endblock content %}
+    

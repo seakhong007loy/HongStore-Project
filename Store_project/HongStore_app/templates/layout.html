@@ -1,0 +1,197 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}" />
+    <link rel="icon" href="{% static 'image/BigHongStore.png' %}">
+
+    <!-- FontAweSome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
+  </head>
+  <body id="modeBody" class="min-h-screen bg-linear-to-br from-slate-950 via-gray-900 to-blue-950 text-white">
+    <!-- mobie -->
+    <nav class="lg:hidden fixed top-0 left-0 z-50 w-full flex justify-center items-center h-15 backdrop-blur-[20px] bg-black/30">
+      <div class="absolute left-4">
+        <button id="menuBtn" class="text-[20px] cursor-pointer transition duration-300 hover:scale-105">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div
+          id="menu"
+          class="hidden absolute mt-2 w-48 rounded-lg bg-black/50 backdrop-sepia-100"
+        >
+          <a
+            class="block px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-red-500 transition duration-300 hover:scale-105"
+            href="/home"
+            ><i class="fa-regular fa-house"></i> Home</a
+          >
+          <a
+          href="/customer"
+          class="block px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-blue-500 transition duration-300 hover:scale-105">
+            <i class="fa-solid fa-cart-shopping"></i> Views Your Orders
+          </a>
+          <a
+            class="block px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-blue-500 transition duration-300 hover:scale-105"
+            href="/computer"
+            ><i class="fa-solid fa-computer"></i> Laptop</a
+          >
+          <a
+            class="block px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-blue-500 transition duration-300 hover:scale-105"
+            href="/keyboard"
+            ><i class="fa-regular fa-keyboard"></i> Keyboard</a
+          >
+          <a
+            class="block px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-blue-500 transition duration-300 hover:scale-105"
+            href="/mouse"
+            > <i class="fa-solid fa-computer-mouse"></i> Mouse</a
+          >
+          <a
+            class="block px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-blue-500 transition duration-300 hover:scale-105"
+            href="/shop"
+            ><i class="fa-solid fa-border-all"></i> Technology</a
+          >
+        </div>
+      </div>
+
+      <div class="w-30 h-20">
+        <a href="/home" class="w-30 h-20 flex items-center transition duration-300 hover:scale-105">   
+          <img class="w-20 h-15 object-contain"
+            src="{% static 'image/HongStoreLogo.png' %}" 
+            alt="Hong Store Logo">
+        </a>
+      </div>
+      
+      <!-- SignOut -->
+      <div class="transition duration-300 hover:scale-105 absolute right-0 top-0 p-4">
+          <a href="{% url 'signout' %}"
+              class=" hover:text-blue-500 transition duration-300">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+          </a>
+      </div>
+    </nav>
+
+    <!-- PC -->
+    <nav class="hidden lg:flex fixed top-0 left-0 z-50 w-full justify-between items-center h-15 px-6 backdrop-blur-[20px] bg-black/30">
+    <div class="w-30 h-20">
+      <a href="/home" class="w-30 h-20 flex items-center transition duration-300 hover:scale-105">
+        <img class="w-30 h-20 object-contain "
+          src="{% static 'image/HongStoreLogo.png' %}" 
+          alt="Hong Store Logo">
+      </a>
+    </div>
+
+      <div class="flex items-center gap-5">
+        <a
+          href="/home"
+          class="hover:text-red-500 transition duration-500 hover:scale-110 truncate"
+        >
+          <i class="fa-regular fa-house"></i> Home
+        </a>
+        <a
+          href="/customer"
+          class="hover:text-blue-500 transition duration-500 hover:scale-110 truncate"
+        >
+         <i class="fa-solid fa-cart-shopping"></i> Views Your Orders
+        </a>
+        <a
+          href="/shop"
+          class="hover:text-blue-500 transition duration-500 hover:scale-110 truncate"
+        >
+          <i class="fa-solid fa-border-all"></i> Technology
+        </a>
+         <a
+          href="/computer"
+          class="hover:text-blue-500 transition duration-500 hover:scale-110 truncate"
+        >
+          <i class="fa-solid fa-computer"></i> Laptop
+        </a>
+        <a
+          href="/keyboard"
+          class="hover:text-blue-500 transition duration-500 hover:scale-110 truncate"
+        >
+          <i class="fa-regular fa-keyboard"></i> Keyboard
+        </a>
+
+        <a
+          href="/mouse"
+          class="hover:text-blue-500 transition duration-500 hover:scale-110 truncate"
+        >
+          <i class="fa-solid fa-computer-mouse"></i> Mouse
+        </a>
+
+        <form action="{% url 'search' %}" method="get">
+          <input
+            type="search"
+            name="q"
+            value="{{ request.GET.q|default:'' }}"
+            placeholder="Search..."
+            class=" border rounded-lg px-3 py-2 outline-none focus:border-blue-500"
+          />
+
+          <button
+            type="submit"
+            class="cursor-pointer px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-400 hover:text-white transition duration-300 hover:scale-105"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        
+        <!-- SignOut -->
+        <div class="transition duration-300 hover:scale-105">
+            <a href="{% url 'signout' %}"
+                class=" hover:text-blue-500 transition duration-300  truncate">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+            </a>
+        </div>
+          
+      </div>
+    </nav>
+
+    <div class="absolute right-20 bottom-20 z-50">
+      <button id="modeBtn" class="fixed rounded-full p-2 text-4xl cursor-pointer transition duration-300 hover:scale-105 hover:bg-blue-400 bg-blue-600 text-white ">
+        <i class="fa-solid fa-star-and-crescent"></i>
+      </button>
+    </div>
+<div class="mt-18">
+    {% block content %} 
+    
+    {% endblock content %}
+</div>
+    
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const menu = document.getElementById("menu");
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+// Dark mode & Ligth mode
+const modeBody = document.body;
+const modeBtn = document.getElementById("modeBtn");
+
+const darkClasses = [
+    "bg-linear-to-br",
+    "from-slate-950",
+    "via-gray-900",
+    "to-blue-950",
+    "text-white"
+];
+
+modeBtn.addEventListener("click", () => {
+    const isDark = modeBody.classList.contains("text-white");
+
+    if (isDark) {
+        modeBody.classList.remove(...darkClasses);
+        modeBtn.innerHTML = '<i class="fa-solid fa-star-and-crescent"></i>'
+    } else {
+        modeBody.classList.add(...darkClasses);
+        modeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>'
+    }
+});
+
+    </script>
+  </body>
+</html>

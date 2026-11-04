@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@source "../../HongStore_app/templates";
+@source "../../**/templates";
+
+
+@theme {
+    --animate-imageComeIn: imageComeIn 1s ease-out forwards;
+    --animate-textComeIn: textComeIn 1s ease-out forwards;
+    --animate-elementUp: elementUp 1s ease-out forwards;
+
+    @keyframes elementUp {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 100px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes imageComeIn {
+        from {
+            opacity: 0;
+            transform: translate3d(-100px, 0, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes textComeIn {
+        from {
+            opacity: 0;
+            transform: translate3d(100px, 0, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}

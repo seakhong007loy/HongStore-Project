@@ -1,0 +1,160 @@
+{% extends 'layout.html' %}
+{% block title %}
+All Of Products | HongStore
+{% endblock title %}
+
+{% block content %}
+
+<!-- Product Container -->
+<div class="mt-15 px-4 sm:px-6 lg:px-10">
+
+  <!-- Product Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 animate-elementUp">
+    {% for c in computer %}
+
+    <!-- Product Card -->
+    <div class="border rounded-lg overflow-hidden">
+
+      <!-- Image -->
+      <div class="w-full h-auto
+                  flex justify-center items-center">
+
+        <a href="/com_view/{{ c.id }}" class="w-full h-full flex justify-center items-center">
+          <img
+            src="/media/{{ c.photo_first }}"
+            alt="{{ c.name }}"
+            class="w-full h-full object-contain
+                   hover:scale-105 transition duration-300"
+          />
+        </a>
+
+      </div>
+
+      <!-- Text -->
+      <div class="p-4 h-full bg-white text-black shadow-lg">
+
+        <!-- Product Name -->
+        <p class="font-semibold text-lg truncate">
+          {{ c.name }}
+        </p>
+
+        <!-- Price + Discount -->
+        <div class="mt-2 flex justify-between items-center">
+
+          <p class="text-xl font-bold">
+            ${{ c.price }}
+          </p>
+
+          {% if c.discount %}
+          <span class="text-sm text-red-500 font-semibold">
+            -{{ c.discount }}%
+          </span>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+    </div>
+
+    {% endfor %}
+    
+    {% for k in keyboard %}
+
+    <!-- Product Card -->
+    <div class="border rounded-lg overflow-hidden">
+
+      <!-- Image -->
+      <div class="w-full h-auto
+                  flex justify-center items-center">
+
+        <a href="/key_view/{{ k.id }}" class="w-full h-full flex justify-center items-center">
+          <img
+            src="/media/{{ k.photo_first }}"
+            alt="{{ k.name }}"
+            class="w-full h-full object-contain
+                   hover:scale-105 transition duration-300"
+          />
+        </a>
+
+      </div>
+
+      <!-- Text -->
+      <div class="p-4 h-full bg-white text-black shadow-lg">
+
+        <!-- Product Name -->
+        <p class="font-semibold text-lg truncate">
+          {{ k.name }}
+        </p>
+
+        <!-- Price + Discount -->
+        <div class="mt-2 flex justify-between items-center">
+
+          <p class="text-xl font-bold">
+            ${{ k.price }}
+          </p>
+
+          {% if k.discount %}
+          <span class="text-sm text-red-500 font-semibold">
+            -{{ k.discount }}%
+          </span>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+    </div>
+
+    {% endfor %}
+
+     {% for m in mouse %}
+        
+        <!-- Product Cart -->
+        <div class=" border rounded-lg overflow-hidden">
+
+            <!-- Image -->
+             <div class="w-full h-auto flex justify-center items-center">
+                <a href="/mouse_view/{{ m.id }}" class="w-full h-full flex justify-center items-center">
+                    <img 
+                        src="/media/{{ m.photo_first }}"
+                        alt="{{ m.name }}"
+                        class="w-full h-full
+                            hover:scale-105 transition duration-300"
+                    />
+                </a>
+            </div>
+
+            <div class="p-4 h-full bg-white text-black shadow-lg">
+
+                <!-- Product Name -->
+                <p class="font-semibold text-lg truncate">
+                {{ m.name }}
+                </p>
+
+                <!-- Price + Discount -->
+                <div class="mt-2 flex justify-between items-center">
+
+                <p class="text-xl font-bold">
+                    ${{ m.price }}
+                </p>
+
+                {% if m.discount %}
+                <span class="text-sm text-red-500 font-semibold">
+                    -{{ m.discount }}%
+                </span>
+                {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+  </div>
+
+</div>
+
+{% endblock content %}
