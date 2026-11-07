@@ -3,11 +3,21 @@
 @source "../../HongStore_app/templates";
 @source "../../**/templates";
 
-
 @theme {
     --animate-imageComeIn: imageComeIn 1s ease-out forwards;
     --animate-textComeIn: textComeIn 1s ease-out forwards;
     --animate-elementUp: elementUp 1s ease-out forwards;
+    --animate-infinite-scroll: infinite-scroll 20s linear infinite;
+
+    @keyframes infinite-scroll {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
 
     @keyframes elementUp {
         from {

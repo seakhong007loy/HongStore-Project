@@ -25,9 +25,15 @@ SECRET_KEY = 'django-insecure-l+_v(iem4eon=xc2_dr_4q=5ven7&-h5c5b+ukw7wfae9!ir(r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'hydrant-refocus-footbath.ngrok-free.dev',
+]
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://hydrant-refocus-footbath.ngrok-free.dev',
+]
 # Application definition
 
 INSTALLED_APPS = [

@@ -1,26 +1,40 @@
-{% load static %}
+{% extends 'layout.html' %}
+
+{% block title %}
+Detail Laptop | HongStore
+{% endblock title %}
 
 {% block content %}
-<title>Detail Keyboard | HongStore</title>
-<link rel="stylesheet" href="{% static 'css/output.css' %}" />
-    <link rel="icon" href="{% static 'image/BigHongStore.png' %}">
-<!-- FontAweSome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
   
 <div
   class="w-full h-screen flex flex-col md:flex-row justify-center items-center"
 >
-<a href="/keyboard" class="absolute top-0 left-0 text-3xl p-2 m-2 transition duration-300 hover:scale-105 hover:text-red-500">
+<a href="/keyboard" class="top-12 left-0 fixed text-3xl p-2 m-2 transition duration-300 hover:scale-105 hover:text-red-500">
   <i class="fa-solid fa-circle-arrow-left"></i>
 </a>
 
-  <div class="md:w-[50%] animate-imageComeIn">
-    <img
-      class="w-[80%] h-[80%] object-contain md:hover:scale-105 transition duration-300"
-      src="/media/{{kv.photo_first}}"
-      alt="{{kv.name}}"
-    />
-  </div>
+  
+<div class="max-w-xl mx-auto md:w-[50%] animate-imageComeIn">
+
+    <!-- Main Image -->
+    <div class="w-full h-96 overflow-hidden transition duration-300 hover:scale-105 cursor-none">
+        <img id="mainImage"
+             src="/media/{{kv.photo_second}}"
+             class="w-full h-full object-contain transition-all duration-300">
+    </div>
+
+    <!-- Thumbnail Images -->
+    <div class="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth mt-4">
+        <img onclick="changeImage(this)"
+             src="/media/{{kv.photo_second}}"
+             class="w-24 h-24 shrink-0 object-cover rounded-lg border-2 border-blue-500 cursor-pointer">
+
+        <img onclick="changeImage(this)"
+             src="/media/{{kv.photo_first}}"
+             class="w-24 h-24 shrink-0 object-cover rounded-lg border-2 border-transparent cursor-pointer">
+    </div>
+
+</div>
 
   <div class="md:w-[50%] animate-textComeIn">
     <h1
@@ -57,4 +71,26 @@
     </a>
   </div>
 </div>
+
+<script>
+function changeImage(element) {
+
+    // Get Main Image
+    const mainImage = document.getElementById('mainImage');
+
+    // Change Image
+    mainImage.src = element.src;
+
+    // Remove active border from all images
+    document.querySelectorAll('.overflow-x-auto img').forEach(img => {
+        img.classList.remove('border-blue-500');
+        img.classList.add('border-transparent');
+    });
+
+    // Add active border to clicked image
+    element.classList.remove('border-transparent');
+    element.classList.add('border-blue-500');
+
+}
+</script>
 {% endblock content %}

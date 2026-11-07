@@ -15,10 +15,76 @@ Home Page | HongStore
         class="w-full h-auto object-cover"
       />
     </a>
-    <p class=" text-center md:hidden">
-      <b>RedMagic’s new gaming laptop features Intel Core Ultra 9, NVIDIA RTX 5090</b>
-    </p>
   </div>
+  
+  <section class="w-full max-w-6xl mx-auto p-5">
+
+      <!-- Main Image -->
+      <div class="relative overflow-hidden rounded-2xl group">
+
+          <img
+              id="mainImage"
+              src="{% static 'image/image1.jpg' %}"
+              class="w-full h-[80vh] object-cover transition-all duration-700"
+              alt="Laptop"
+          >
+
+          <!-- Previous Button -->
+          <button
+              onclick="changeSlide(-1)"
+              class="absolute left-5 top-1/2 -translate-y-1/2
+              backdrop-blur-[10px] hover:bg-blue-600 text-white
+              w-12 h-12 rounded-full transition duration-300 cursor-pointer">
+              <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <!-- Next Button -->
+          <button
+              onclick="changeSlide(1)"
+              class="absolute right-5 top-1/2 -translate-y-1/2
+              backdrop-blur-[10px] hover:bg-blue-600 text-white
+              w-12 h-12 rounded-full transition duration-300 cursor-pointer">
+              <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+      </div>
+
+      <!-- Image Navigation -->
+      <div class="flex gap-4">
+
+          <button onclick="goToSlide(0)" class="slide-btn flex-1">
+              <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
+                  <div class="progress-bar bg-red-600 h-full w-0"></div>
+              </div>
+          </button>
+
+          <button onclick="goToSlide(1)" class="slide-btn flex-1">
+              <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
+                  <div class="progress-bar bg-red-600 h-full w-0"></div>
+              </div>
+          </button>
+
+          <button onclick="goToSlide(2)" class="slide-btn flex-1">
+              <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
+                  <div class="progress-bar bg-red-600 h-full w-0"></div>
+              </div>
+          </button>
+          
+          <button onclick="goToSlide(3)" class="slide-btn flex-1">
+              <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
+                  <div class="progress-bar bg-red-600 h-full w-0"></div>
+              </div>
+          </button>
+
+          <button onclick="goToSlide(4)" class="slide-btn flex-1">
+              <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
+                  <div class="progress-bar bg-red-600 h-full w-0"></div>
+              </div>
+          </button>
+
+      </div>
+
+  </section>
 
   <!-- Laptop -->
   <div
@@ -83,6 +149,84 @@ Home Page | HongStore
       </p>
     </div>
   </div>
+
+  
+  <section class="w-full overflow-hidden backdrop-blur-[10px] py-10 mt-10">
+
+    <div class="flex w-max animate-infinite-scroll hover:[animation-play-state:paused] cursor-wait">
+
+        <!-- First Group -->
+        <div class="flex items-center gap-10 px-5 ">
+            <img class="h-25"
+              src="{% static 'image/acer.png' %}" alt="Acer">
+            <img class="h-25"
+              src="{% static 'image/aoc.png' %}" alt="Aoc">
+            <img class="h-25"
+              src="{% static 'image/apple.png' %}" alt="apple">
+            <img class="h-25"
+              src="{% static 'image/asus.png' %}" alt="asus">
+            <img class="h-25"
+              src="{% static 'image/cisci.png' %}" alt="cisci">
+            <img class="h-25"
+              src="{% static 'image/cooler.png' %}" alt="cooler">
+            <img class="h-25"
+              src="{% static 'image/dell.png' %}" alt="dell">
+            <img class="h-25"
+              src="{% static 'image/epson.png' %}" alt="epson">
+            <img class="h-25"
+              src="{% static 'image/hikvision.png' %}" alt="hikvision">
+            <img class="h-25"
+              src="{% static 'image/HongStoreLogo.png' %}" alt="HongStoreLogo">
+            <img class="h-25"
+              src="{% static 'image/hp.png' %}" alt="hp">
+            <img class="h-25"
+              src="{% static 'image/lenovo.png' %}" alt="lenovo">
+            <img class="h-25"
+              src="{% static 'image/logotech.png' %}" alt="logotech">
+            <img class="h-25"
+              src="{% static 'image/microsoft.png' %}" alt="microsoft">
+            <img class="h-25"
+              src="{% static 'image/ubiquiti.png' %}" alt="ubiquiti">
+        </div>
+
+        
+        <div class="flex items-center gap-10 px-5 ">
+            <img class="h-25"
+              src="{% static 'image/acer.png' %}" alt="Acer">
+            <img class="h-25"
+              src="{% static 'image/aoc.png' %}" alt="Aoc">
+            <img class="h-25"
+              src="{% static 'image/apple.png' %}" alt="apple">
+            <img class="h-25"
+              src="{% static 'image/asus.png' %}" alt="asus">
+            <img class="h-25"
+              src="{% static 'image/cisci.png' %}" alt="cisci">
+            <img class="h-25"
+              src="{% static 'image/cooler.png' %}" alt="cooler">
+            <img class="h-25"
+              src="{% static 'image/dell.png' %}" alt="dell">
+            <img class="h-25"
+              src="{% static 'image/epson.png' %}" alt="epson">
+            <img class="h-25"
+              src="{% static 'image/hikvision.png' %}" alt="hikvision">
+            <img class="h-25"
+              src="{% static 'image/HongStoreLogo.png' %}" alt="HongStoreLogo">
+            <img class="h-25"
+              src="{% static 'image/hp.png' %}" alt="hp">
+            <img class="h-25"
+              src="{% static 'image/lenovo.png' %}" alt="lenovo">
+            <img class="h-25"
+              src="{% static 'image/logotech.png' %}" alt="logotech">
+            <img class="h-25"
+              src="{% static 'image/microsoft.png' %}" alt="microsoft">
+            <img class="h-25"
+              src="{% static 'image/ubiquiti.png' %}" alt="ubiquiti">
+        </div>
+
+    </div>
+
+</section>
+
 
   <!-- Mouse -->
   <div
@@ -168,5 +312,103 @@ Home Page | HongStore
     </div>
   </footer>
 
+  <script>
+    const images = [
+        "{% static 'image/image1.jpg' %}",
+        "{% static 'image/image2.jpg' %}",
+        "{% static 'image/image3.jpg' %}",
+        "{% static 'image/image4.jpg' %}",
+        "{% static 'image/image5.jpg' %}",
+    ];
+
+    let currentIndex = 0;
+
+    const mainImage = document.getElementById("mainImage");
+    const slideButtons = document.querySelectorAll(".slide-btn");
+    const progressBars = document.querySelectorAll(".progress-bar");
+
+    const duration = 5000; // 5 seconds
+
+    let startTime;
+    let animationFrame;
+    let isPaused = false;
+
+
+    // Change Image
+    function showSlide(index) {
+
+        currentIndex = (index + images.length) % images.length;
+
+        mainImage.style.opacity = "0";
+
+        setTimeout(() => {
+
+            mainImage.src = images[currentIndex];
+
+            mainImage.style.opacity = "1";
+
+        }, 250);
+
+        resetCountdown();
+    }
+
+
+    // Next / Previous
+    function changeSlide(direction) {
+
+        showSlide(currentIndex + direction);
+
+    }
+
+
+    // Click Thumbnail
+    function goToSlide(index) {
+
+        showSlide(index);
+
+    }
+
+
+    // Countdown
+    function resetCountdown() {
+
+        cancelAnimationFrame(animationFrame);
+
+        progressBars.forEach(bar => {
+            bar.style.width = "0%";
+        });
+
+        startTime = performance.now();
+
+        countdown();
+
+    }
+
+
+    // Animation Countdown
+    function countdown() {
+
+        const elapsed = performance.now() - startTime;
+
+        const progress = Math.min((elapsed / duration) * 100, 100);
+
+        progressBars[currentIndex].style.width = progress + "%";
+
+        if (progress < 100) {
+
+            animationFrame = requestAnimationFrame(countdown);
+
+        } else {
+
+            changeSlide(1);
+
+        }
+
+    }
+
+
+    // Start Slider
+    resetCountdown();
+  </script>
 
 {% endblock content %}
