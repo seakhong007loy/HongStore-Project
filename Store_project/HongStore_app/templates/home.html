@@ -17,10 +17,10 @@ Home Page | HongStore
     </a>
   </div>
   
-  <section class="w-full max-w-6xl mx-auto p-5">
+  <section class="w-full max-w-6xl mx-auto p-5 mt-10">
 
       <!-- Main Image -->
-      <div class="relative overflow-hidden rounded-2xl group">
+      <div class="relative overflow-hidden rounded-2xl group shadow-2xl shadow-blue-400">
 
           <img
               id="mainImage"
@@ -50,44 +50,38 @@ Home Page | HongStore
       </div>
 
       <!-- Image Navigation -->
-      <div class="flex gap-4">
+    <div class=" flex justify-center items-center ">
+        <div class="flex gap-4">
 
-          <button onclick="goToSlide(0)" class="slide-btn flex-1">
-              <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
-                  <div class="progress-bar bg-red-600 h-full w-0"></div>
-              </div>
-          </button>
+            <button onclick="goToSlide(0)" class="slide-btn flex-1">
+              <img src="{% static 'image/image1.jpg' %}"
+                 class="w-full h-20 object-cover rounded-lg">
+                <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
+                    <div class="progress-bar bg-black/50 h-full w-0"></div>
+                </div>
+            </button>
 
-          <button onclick="goToSlide(1)" class="slide-btn flex-1">
-              <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
-                  <div class="progress-bar bg-red-600 h-full w-0"></div>
-              </div>
-          </button>
+            <button onclick="goToSlide(1)" class="slide-btn flex-1">
+              <img src="{% static 'image/image2.jpg' %}"
+                 class="w-full h-20 object-cover rounded-lg">
+                <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
+                    <div class="progress-bar bg-blue-700 h-full w-0"></div>
+                </div>
+            </button>
 
-          <button onclick="goToSlide(2)" class="slide-btn flex-1">
-              <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
-                  <div class="progress-bar bg-red-600 h-full w-0"></div>
-              </div>
-          </button>
-          
-          <button onclick="goToSlide(3)" class="slide-btn flex-1">
-              <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
-                  <div class="progress-bar bg-red-600 h-full w-0"></div>
-              </div>
-          </button>
-
-          <button onclick="goToSlide(4)" class="slide-btn flex-1">
-              <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
-                  <div class="progress-bar bg-red-600 h-full w-0"></div>
-              </div>
-          </button>
-
-      </div>
-
+            <button onclick="goToSlide(2)" class="slide-btn flex-1">
+              <img src="{% static 'image/image3.jpg' %}"
+                 class="w-full h-20 object-cover rounded-lg">
+                <div class="progress-container mt-2 bg-gray-300 h-1 rounded-full overflow-hidden">
+                    <div class="progress-bar bg-blue-800 h-full w-0"></div>
+                </div>
+            </button>
+        </div>
+    </div>
   </section>
 
   <!-- Laptop -->
-  <div
+<div
     class="w-[90%] md:w-[80%] flex flex-col md:flex-row justify-center items-center gap-8 md:gap-10 mt-10 py-8 md:py-12"
   >
     <!-- Laptop Text  -->
@@ -118,39 +112,6 @@ Home Page | HongStore
     </div>
   </div>
 
-  <!-- Keyboard -->
-  <div
-    class="w-[90%] md:w-[80%] flex flex-col md:flex-row justify-center items-center gap-8 md:gap-10 mt-10 py-8 md:py-12"
-  >
-    <!-- Keyboard Image -->
-    <div class="w-full md:w-1/2 order-1">
-      <a href="/keyboard">
-        <img
-          src="https://ae-pic-a1.aliexpress-media.com/kf/S2677475e64514db58f56b8727f1efec0f.png?has_lang=1&ver=2"
-          alt="AULA F108 Mechanical Keyboard"
-          class="w-full h-auto rounded-lg shadow-2xl shadow-gray-400 object-contain hover:scale-105 transition duration-300"
-        />
-      </a>
-    </div>
-
-    <!-- Keyboard Text -->
-    <div class="w-full md:w-1/2 p-4 md:p-8 order-2">
-      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">
-        AULA F108 Mechanical
-      </h2>
-
-      <p class="mt-5 text-sm md:text-base lg:text-lg leading-7">
-        Keyboard Bluetooth 5.0 / 2.4G Wireless / Wired Gasket-mounted Gaming
-        Keyboard with 108 Keys. AULA F108 supports USB wired, 2.4G wireless and
-        Bluetooth 5.0 connection, making it a convenient and versatile option
-        for users who use multiple devices. It is compatible with Laptop, iPad,
-        iOS, Windows, Mac and Android. No fussy connection process. An indicator
-        light on the right side of the keyboard shows the state of the battery.
-      </p>
-    </div>
-  </div>
-
-  
   <section class="w-full overflow-hidden backdrop-blur-[10px] py-10 mt-10">
 
     <div class="flex w-max animate-infinite-scroll hover:[animation-play-state:paused] cursor-wait">
@@ -228,6 +189,38 @@ Home Page | HongStore
 </section>
 
 
+  <!-- Keyboard -->
+  <div
+    class="w-[90%] md:w-[80%] flex flex-col md:flex-row justify-center items-center gap-8 md:gap-10 mt-10 py-8 md:py-12"
+  >
+    <!-- Keyboard Image -->
+    <div class="w-full md:w-1/2 order-1">
+      <a href="/keyboard">
+        <img
+          src="https://ae-pic-a1.aliexpress-media.com/kf/S2677475e64514db58f56b8727f1efec0f.png?has_lang=1&ver=2"
+          alt="AULA F108 Mechanical Keyboard"
+          class="w-full h-auto rounded-lg shadow-2xl shadow-gray-400 object-contain hover:scale-105 transition duration-300"
+        />
+      </a>
+    </div>
+
+    <!-- Keyboard Text -->
+    <div class="w-full md:w-1/2 p-4 md:p-8 order-2">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">
+        AULA F108 Mechanical
+      </h2>
+
+      <p class="mt-5 text-sm md:text-base lg:text-lg leading-7">
+        Keyboard Bluetooth 5.0 / 2.4G Wireless / Wired Gasket-mounted Gaming
+        Keyboard with 108 Keys. AULA F108 supports USB wired, 2.4G wireless and
+        Bluetooth 5.0 connection, making it a convenient and versatile option
+        for users who use multiple devices. It is compatible with Laptop, iPad,
+        iOS, Windows, Mac and Android. No fussy connection process. An indicator
+        light on the right side of the keyboard shows the state of the battery.
+      </p>
+    </div>
+  </div>
+
   <!-- Mouse -->
   <div
     class="w-[90%] md:w-[80%] flex flex-col md:flex-row justify-center items-center gap-8 md:gap-10 mt-10 py-8 md:py-12"
@@ -287,7 +280,7 @@ Home Page | HongStore
 </section>
 
   <!-- Footer section-->
-  <footer class="bg-black text-white w-full h-20 flex justify-center items-center mt-5">
+  <footer class="bg-black text-white w-full h-auto absolute flex justify-center items-center mt-5 p-4">
     <div class="w-[50%] flex justify-center items-center flex-row gap-5">
 
       <!-- Text Logo -->
@@ -317,8 +310,6 @@ Home Page | HongStore
         "{% static 'image/image1.jpg' %}",
         "{% static 'image/image2.jpg' %}",
         "{% static 'image/image3.jpg' %}",
-        "{% static 'image/image4.jpg' %}",
-        "{% static 'image/image5.jpg' %}",
     ];
 
     let currentIndex = 0;

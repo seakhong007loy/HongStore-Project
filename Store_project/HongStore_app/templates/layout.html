@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
   </head>
   <body id="modeBody" class="min-h-screen bg-linear-to-br from-slate-950 via-gray-900 to-blue-950 text-white">
+<section class="min-h-screen flex flex-col">
     <!-- mobie -->
     <nav class="lg:hidden fixed top-0 left-0 z-50 w-full flex justify-center items-center h-15 backdrop-blur-[20px]">
       <div class="absolute left-4">
@@ -84,43 +85,55 @@
     </div>
 
       <div class="flex items-center gap-5">
+
         <a
           href="/home"
           class="hover:text-red-500 transition duration-500 hover:scale-110 truncate"
         >
           <i class="fa-regular fa-house"></i> Home
         </a>
+
         <a
           href="/customer"
           class="hover:text-blue-500 transition duration-500 hover:scale-110 truncate"
         >
-         <i class="fa-solid fa-cart-shopping"></i> Views Your Orders
+          <i class="fa-regular fa-eye"></i> Views Your Orders
         </a>
+
         <a
           href="/shop"
           class="hover:text-blue-500 transition duration-500 hover:scale-110 truncate"
         >
-          <i class="fa-solid fa-border-all"></i> Technology
-        </a>
-         <a
-          href="/computer"
-          class="hover:text-blue-500 transition duration-500 hover:scale-110 truncate"
-        >
-          <i class="fa-solid fa-computer"></i> Laptop
-        </a>
-        <a
-          href="/keyboard"
-          class="hover:text-blue-500 transition duration-500 hover:scale-110 truncate"
-        >
-          <i class="fa-regular fa-keyboard"></i> Keyboard
+          <i class="fa-solid fa-border-all"></i> All Products
         </a>
 
-        <a
-          href="/mouse"
-          class="hover:text-blue-500 transition duration-500 hover:scale-110 truncate"
-        >
-          <i class="fa-solid fa-computer-mouse"></i> Mouse
-        </a>
+        <button id="menuBtnLg" class="transition duration-300 hover:scale-105 hover:text-blue-500 cursor-pointer">
+          <i class="fa-solid fa-cart-shopping"></i> Products
+        </button>
+
+          <div id="menuLg" class="hidden absolute w-auto mt-50 right-96 rounded-lg p-4 bg-black/50 backdrop-sepia-100">
+
+            <a
+              href="/computer"
+              class="block hover:text-blue-500 transition duration-500 hover:scale-110 hover:bg-black/60 rounded-lg p-2"
+            >
+              <i class="fa-solid fa-computer"></i> Laptop
+            </a>
+            <a
+              href="/keyboard"
+              class="block hover:text-blue-500 transition duration-500 hover:scale-110 hover:bg-black/60 rounded-lg p-2 "
+            >
+              <i class="fa-regular fa-keyboard"></i> Keyboard
+            </a>
+
+            <a
+              href="/mouse"
+              class="block hover:text-blue-500 transition duration-500 hover:scale-110 hover:bg-black/60 rounded-lg p-2 "
+            >
+              <i class="fa-solid fa-computer-mouse"></i> Mouse
+            </a>
+            
+          </div>
 
         <form action="{% url 'search' %}" method="get">
           <input
@@ -155,18 +168,28 @@
         <i class="fa-solid fa-star-and-crescent"></i>
       </button>
     </div>
-<div class="mt-18">
+<div class="mt-18 mb-10">
     {% block content %} 
     
     {% endblock content %}
 </div>
-    
-    <script>
-      const menuBtn = document.getElementById("menuBtn");
-      const menu = document.getElementById("menu");
-      menuBtn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
+
+</section>
+
+<script>
+// Large
+const menuBtnLg = document.getElementById("menuBtnLg");
+const menuLg = document.getElementById("menuLg");
+menuBtnLg.addEventListener("click", () => {
+  menuLg.classList.toggle("hidden");
+});
+
+// Medium Screem Menu
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+menuBtn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
 
 // Dark mode & Ligth mode
 const modeBody = document.body;
@@ -180,18 +203,33 @@ const darkClasses = [
     "text-white"
 ];
 
-modeBtn.addEventListener("click", () => {
-    const isDark = modeBody.classList.contains("text-white");
+function applyTheme(theme){
 
-    if (isDark) {
+    if (theme === 'dark') {
         modeBody.classList.remove(...darkClasses);
         modeBtn.innerHTML = '<i class="fa-solid fa-star-and-crescent"></i>'
     } else {
         modeBody.classList.add(...darkClasses);
         modeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>'
     }
+};
+
+const saveTheme = localStorage.getItem("theme") || "light";
+
+applyTheme(saveTheme);
+
+modeBtn.addEventListener("click", () => {
+    const currentTheme = localStorage.getItem("theme") || "light";
+
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+
+    localStorage.setItem("theme", newTheme);
+
+    applyTheme(newTheme);
+
 });
 
-    </script>
+</script>
+
   </body>
 </html>
